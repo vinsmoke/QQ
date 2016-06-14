@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<script src="./js/jquery-1.12.0.js"></script>
+<script src="./js/index.js"></script>
+<body>
+   <div id="html">
+     <audio id="autio" src="./musics/a.mp3"></audio>
+     <div class="m_player">
+       <div class="m_player_dock">
+         <div class="music_info">
+           <a href class="album_pic">
+             <img src="" alt="">
+           </a>
+           <div class="music_info_main">
+             <p class="music_name" title="">
+              <span id="music_name"></span>
+              <a class="icon_radio">电台</a>
+            </p>
+            <p class="singer_name" title=""></p>
+            <p class="play_date"></p>
+            <p class="music_op">
+              <strong class="btn_like" title="喜欢">
+                <span>我喜欢</span>
+              </strong>
+              <strong class="btn_share" title="分享">
+                <span>分享</span>
+              </strong>
+              <!-- <strong class="btn_kg"> -->
+              <!--   <span>唱这首歌</span> -->
+              <!--   <span class="kge_QRcode"> -->
+              <!--     <em> -->
+              <!--       <\!--二维码图片在这里-\-> -->
+              <!--     </em> -->
+              <!--     <em>手机扫描二维码，唱这首歌</em> -->
+              <!--     <i class="kge_QRcode_logo"></i> -->
+              <!--     <i class="kge_QRcode_arrow"></i> -->
+              <!--   </span> -->
+              <!-- </strong> -->
+            </p>
+           </div>
+         </div>
+         <div class="bar_op">
+           <strong title="上一首( [ )" class="prev_bt" id="prevbt">
+             <span>上一首</span>
+           </strong>
+           <strong title="播放(P)" class="play_bt" id="btnplay">
+             <span>播放</span>
+           </strong>
+           <strong title="下一首( ] )" class="next_bt" id="nextbt">
+             <span>下一首</span>
+           </strong>
+           <strong title="列表循环" class="cycle_bt" id="btnPlayway">
+             <span>列表循环</span>
+           </strong>
+           <p class="volume" title="音量调节">
+             <span class="volume_icon" id="spanmute" title="点击设为静音(M)"></span>
+             <span class="volume_regulate" id="spanvolume">
+               <span class="volume_bar" style="width: 100%;" id="spanvolumebar"></span>
+               <span class="volume_op" style="left: 100%;" id="spanvolumeop"></span>
+             </span>
+           </p>
+         </div>
+         <p class="playbar_cp_select" id="divselect" >
+           <strong title="顺序播放" class="ordered_bt">
+             <span>顺序播放</span>
+           </strong>
+           <strong title="随机播放" class="unordered_bt">
+             <span>随机播放</span>
+           </strong>
+           <strong title="单曲循环" class="cycle_single_bt">
+             <span>单曲循环</span>
+           </strong>
+           <strong title="列表循环" class="cycle_bt">
+             <span>列表循环</span>
+           </strong>
+         </p>
+         <p class="player_bar">
+          <span class="player_bg_bar" id="spanplayer_bgbar"></span>
+          <span class="download_bar" id="downloadbar"></span>
+          <span class="play_current_bar" id="spanplaybar"></span>
+          <span class="progress_op"  id="spanprogress_op"></span>
+        </p>
+        <div class="time_show" style="left: 11px; bottom: 8px; display: none;">
+          <p id="time_show">00:14</p>
+          <span class="icon_arrow_foot">
+            <i class="foot_border"></i>
+            <i class="foot_arrow"></i>
+          </span>
+        </div>
+      </div>
+       <span title="展开播放列表" class="open_list" id="spansongnum1" style="display: block;">
+        <span>2</span>
+      </span>
+      <span title="显示歌词(L)" class="btn_lyrics_disabled" >歌词(L)</span>
+       <button type="button" class="folded_bt" title="点击收起">
+        <span>点击收起/展开</span>
+      </button>
+       <div class="play_list_fram">
+         <div class="play_list_title">
+           <ul id="tab_container">
+             <li class="playlist_tab current">
+               <a href="javascript:;">播放列表</a>
+               <i></i>
+             </li>
+             <li id="fm_tab"style="display:none">
+              <a href="javascript:;">单曲电台列表</a>
+              <i></i>
+            </li>
+           </ul>
+           <span class="clear_list">清空列表</span>
+           <strong title="收起播放列表"class="close_list"></strong>
+         </div>
+         <div class="play_list">
+           <div class="play_list_main" id="divplaylist" style="display: block; left: 0px; top: 0px;">
+            <!-- 播放列表_S-->
+            <div class="single_list" id="divsonglist" dirid="0">
+              <ul id="cc">
+                <!-- <li mid="j10" class=""> -->
+                <!--   <strong class="music_name" title="Beautiful Love">Beautiful Love</strong> -->
+                <!--   <strong class="singer_name" title="蔡健雅">蔡健雅</strong> -->
+                <!--   <strong class="play_time">04:55</strong> -->
+                <!--   <div class="list_cp"> -->
+                <!--     <strong class="btn_like" title="喜欢" name="" mid="004fQTu016b9W4"> -->
+                <!--       <span>我喜欢</span> -->
+                <!--     </strong> -->
+                <!--     <strong class="btn_share" title="分享"> -->
+                <!--       <span>分享</span> -->
+                <!--     </strong> -->
+                <!--     <strong class="btn_fav" title="收藏到歌单"> -->
+                <!--       <span>收藏</span> -->
+                <!--     </strong> -->
+                <!--     <strong class="btn_del" title="从列表中删除"> -->
+                <!--       <span>删除</span> -->
+                <!--     </strong> -->
+                <!--   </div> -->
+                <!-- </li> -->
+             </ul>
+            </div>
+
+            <div id="divalbumlist" style="display:none;">
+            </div>
+          </div>
+           <div class="play_list_scroll">
+             <span id="spanbar" class="play_list_scrolling" style="left: 3px; top: 0px;"></span>
+           </div>
+         </div>
+       </div>
+       <div class="y_player_lyrics" id="player_lyrics_pannel" >
+        <div class="lyrics_text" id="qrc_ctn">
+          <p id="line_null">
+           
+         </div>
+        <div class="lyrics_bg"></div>
+        <span class="close_lyrics" id="closelrcpannel"></span>
+      </div>
+      <div class="single_radio_tip" id="single_radio_tip" style="display:none;">
+       <a href="javascript:;" class="close_tips"></a>
+     </div>
+     </div>
+   </div>
+</body>
+</html>

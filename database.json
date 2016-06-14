@@ -1,0 +1,85 @@
+[
+  {
+    "filename": "./musics/a.mp3",
+    "duration": "03:51",
+    "title": "Can You Feel It",
+    "album": "The Essential Michael Jackson",
+    "artist": "Michael Jackson"
+  },
+  {
+    "filename": "./musics/b.mp3",
+    "duration": "04:34",
+    "title": "You Are Not Alone£¨Radio Edit£©",
+    "album": "Number Ones",
+    "artist": "Michael Jackson"
+  },
+  {
+    "filename": "./musics/Michael Jackson - Heal The World.mp3",
+    "duration": "06:25",
+    "title": "Heal The World",
+    "album": "Dangerous",
+    "artist": "Michael Jackson"
+  },
+  {
+    "filename": "./musics/WeAreYoung.mp3",
+    "duration": "04:10",
+    "title": "We Are Young",
+    "album": "We Are Young (feat Janelle Mon¨¢e) - Single",
+    "artist": "fun."
+  },
+  {
+    "filename": "./musics/下雨天.mp3",
+    "duration": "04:13",
+    "title": "下雨天",
+    "album": "优の良曲 南搞小孩 新歌 精选",
+    "artist": "南拳妈妈"
+  },
+  {
+    "filename": "./musics/不为谁而作的歌(Live).mp3",
+    "duration": "04:22",
+    "title": "不为谁而作的歌 (Live)",
+    "album": "2016QQ音乐“最好的时光”跨年演唱会",
+    "artist": "林俊杰"
+  },
+  {
+    "filename": "./musics/不为谁而作的歌.mp3",
+    "duration": "04:26",
+    "title": "不为谁而作的歌",
+    "album": "和自己对话 From M.E. To Myself",
+    "artist": "林俊杰"
+  },
+  {
+    "filename": "./musics/偏爱.mp3",
+    "duration": "03:33",
+    "title": "偏爱",
+    "album": "仙剑奇侠传三 电视剧原声带",
+    "artist": "张芸京"
+  },
+  {
+    "filename": "./musics/分手旅行.mp3",
+    "duration": "03:19",
+    "title": "分手旅行",
+    "album": "痛过我记得",
+    "artist": "苏霏/刘玥"
+  },
+  {
+    "filename": "./musics/巴赫旧约.mp3",
+    "duration": "03:47",
+    "title": "巴赫旧约",
+    "artist": "汪苏泷"
+  },
+  {
+    "filename": "./musics/此生不换(《仙剑奇侠传3》电视剧插曲).mp3",
+    "duration": "04:26",
+    "title": "此生不换 (《仙剑奇侠传3》电视剧插曲)",
+    "album": "仙剑奇侠传三 电视剧原声带",
+    "artist": "青鸟飞鱼"
+  },
+  {
+    "filename": "./musics/英雄联盟之大圣归来(DJ版).mp3",
+    "duration": "03:21",
+    "title": "英雄联盟之大圣归来 (DJ版)",
+    "album": "英雄联盟",
+    "artist": "小可"
+  }
+]

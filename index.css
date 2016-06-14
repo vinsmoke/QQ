@@ -1,0 +1,609 @@
+ul, li, h1, h2, h3, h4, h5, h6 {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+p, ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+button {
+  outline: none; }
+
+a {
+  text-decoration: none; }
+
+body {
+  color: #8B8B8B;
+  background-color: #FFF;
+  font-size: 12px;
+  line-height: 1.5em;
+  font-family: Arial,Tahoma,"hiragino sans gb",Helvetica;
+  margin: 0; }
+
+.m_player {
+  width: 563px;
+  height: 115px;
+  position: fixed;
+  _position: absolute;
+  bottom: 20px;
+  left: -541px;
+  box-shadow: 3px 3px 6px RGBA(0, 0, 0, 0.42);
+  border-radius: 4px;
+  z-index: 1;
+  left: 0; }
+  .m_player .active_tip {
+    font-size: 0;
+    background: url(./images/player_bg.png) no-repeat;
+    display: block;
+    width: 17px;
+    height: 20px;
+    position: absolute;
+    right: 3px; }
+  .m_player .open_list {
+    background: url(./images/player_bg.png) no-repeat -222px -97px;
+    width: 47px;
+    height: 28px;
+    position: absolute;
+    top: 0;
+    right: 61px;
+    cursor: pointer; }
+    .m_player .open_list span {
+      color: #FFF;
+      font-family: tahoma;
+      font-size: 11px;
+      display: inline-block;
+      text-align: center;
+      width: 24px;
+      height: 28px;
+      line-height: 28px;
+      margin-left: 23px; }
+  .m_player .btn_lyrics_disabled {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(./images/player_bg.png) no-repeat -452px 0;
+    position: absolute;
+    top: 7px;
+    right: 37px;
+    text-indent: -9999px;
+    cursor: pointer; }
+  .m_player .folded_bt {
+    background: url(./images/player_bg.png) no-repeat 0 0;
+    display: block;
+    width: 22px;
+    height: 115px;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0; }
+    .m_player .folded_bt span {
+      display: none; }
+  .m_player .play_list_fram {
+
+    background-color: #1B1B1B;
+    width: 547px;
+    height: 507px;
+    position: absolute;
+    left: 0;
+    top: -507px;
+    z-index: 11;
+/*     opacity:1; */
+    box-shadow: 3px 3px 6px RGBA(0, 0, 0, 0.42); }
+   /*  .m_player .play_list_frams{
+   transition: width 2s  ease , opacity 1.5s ease,height 2s  ease .5s;
+   width:0;
+   height:0;
+    opacity:0;
+   } */
+  .m_player .play_list_title {
+    background-color: #000;
+    height: 52px;
+    position: relative;
+    z-index: 2; }
+    .m_player .play_list_title ul li {
+      float: left;
+      position: relative; }
+      .m_player .play_list_title ul li a {
+        float: left;
+        color: #FFF;
+        font-size: 18px;
+        font-family: Microsoft Yahei;
+        height: 52px;
+        line-height: 52px;
+        padding: 0 20px; }
+      .m_player .play_list_title ul li i {
+        display: block;
+        width: 15px;
+        height: 8px;
+        background: url(./images/player_bg.png) no-repeat -504px -28px;
+        margin: 0 0 0 -7px;
+        position: absolute;
+        left: 50%;
+        top: 52px; }
+    .m_player .play_list_title ul .current a {
+      background: #262626; }
+    .m_player .play_list_title .clear_list {
+      color: #999;
+      position: absolute;
+      top: 18px;
+      right: 31px;
+      cursor: pointer; }
+    .m_player .play_list_title .close_list {
+      background: url(./images/player_bg.png) no-repeat -269px -97px;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 3px;
+      right: 7px;
+      cursor: pointer; }
+  .m_player .play_list {
+    height: 455px;
+    /* overflow: hidden; */
+    position: relative;
+    border-top: solid 1px #262626;
+    z-index: 1; }
+    .m_player .bar_op .ordered_bt {
+    background-position: -291px -32px;
+    }
+    .m_player .bar_op .unordered_bt {
+    background-position: -327px -32px;
+    }
+    .m_player .bar_op .cycle_single_bt {
+    background-position: -255px 0;
+    }
+    .m_player .bar_op .cycle_bt:hover {
+    background-position: -219px -32px;
+    }
+    .m_player .play_list .play_list_main {
+      width: 529px;
+      position: absolute;
+      left: 0;
+      z-index: 100; }
+      .m_player .play_list .play_list_main .single_list li {
+        height: 23px;
+        margin: 2px 0 3px;
+        padding-left: 20px;
+        position: relative;
+        border-top: solid 1px #1B1B1B; }
+        .m_player .play_list .play_list_main .single_list li strong {
+          color: #595959;
+          font-weight: normal; }
+        .m_player .play_list .play_list_main .single_list li .music_name {
+          color: #999;
+          line-height: 24px;
+          display: inline-block;
+          vertical-align: top;
+          width: 254px;
+          cursor: pointer;
+          overflow: hidden;
+          word-break: keep-all;
+          word-wrap: keep-all;
+          white-space: nowrap;
+          table-layout: fixed;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis; }
+.m_player .play_list .play_list_main .single_list  .play_current strong{
+                    color:#0cc65b;
+                  }
+        .m_player .play_list .play_list_main .single_list li .singer_name {
+          line-height: 24px;
+          display: block;
+          width: 180px;
+          cursor: pointer;
+          position: absolute;
+          left: 290px;
+          top: 0;
+          overflow: hidden;
+          word-break: keep-all;
+          word-wrap: keep-all;
+          white-space: nowrap;
+          table-layout: fixed;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis; }
+        .m_player .play_list .play_list_main .single_list li .play_time {
+          line-height: 24px;
+          display: block;
+          width: 34px;
+          position: absolute;
+          top: 0;
+          right: 17px; }
+        .m_player .play_list .play_list_main .single_list li .list_cp {
+          display: none; }
+          .m_player .play_list .play_list_main .single_list li .list_cp strong {
+            background-image: url(./images/player_bg.png);
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 16px;
+            height: 15px;
+            margin-right: 5px;
+            cursor: pointer; }
+            .m_player .play_list .play_list_main .single_list li .list_cp strong span {
+              display: none; }
+          .m_player .play_list .play_list_main .single_list li .list_cp .btn_like {
+            background-position: 0 -127px; }
+          .m_player .play_list .play_list_main .single_list li .list_cp .btn_share {
+            background-position: -16px -127px; }
+          .m_player .play_list .play_list_main .single_list li .list_cp .btn_fav {
+            background-position: -64px -127px; }
+          .m_player .play_list .play_list_main .single_list li .list_cp .btn_del {
+            background-position: -48px -127px;
+            margin-right: 0 !important; }
+    .m_player .play_list .play_list_scroll {
+      width: 15px;
+      height: 455px;
+      position: absolute;
+      top: 53px;
+      right: 0;
+      cursor: pointer; }
+      .m_player .play_list .play_list_scroll .play_list_scrolling {
+        background-color: #3B3B3B;
+        width: 9px;
+        position: absolute;
+        left: 3px; }
+
+.m_player_dock {
+  background-color: #000;
+  width: 541px;
+  height: 115px; }
+  .m_player_dock .music_info .album_pic {
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+    float: left;
+    overflow: hidden; }
+  .m_player_dock .music_info .music_info_main {
+    font-family: tahoma;
+    float: left; }
+    .m_player_dock .music_info .music_info_main p {
+      margin: 5px 0; }
+    .m_player_dock .music_info .music_info_main .music_name {
+      color: #FFF;
+      width: 300px;
+      height: 20px;
+      overflow: hidden;
+      word-break: keep-all;
+      word-wrap: keep-all;
+      white-space: nowrap;
+      table-layout: fixed;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+      .m_player_dock .music_info .music_info_main .music_name span {
+        float: left;
+        max-width: 210px;
+        overflow: hidden;
+        word-break: keep-all;
+        word-wrap: keep-all;
+        white-space: nowrap;
+        table-layout: fixed;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        _float: none; }
+      .m_player_dock .music_info .music_info_main .music_name .icon_radio {
+        float: left;
+        width: 75px;
+        height: 20px;
+        margin: 0 0 0 10px;
+        background: url(./images/player_bg.png) no-repeat -453px -55px;
+        text-indent: -9999em;
+        overflow: hidden;
+        vertical-align: middle; }
+    .m_player_dock .music_info .music_info_main .singer_name {
+      color: #828282;
+      display: block;
+      width: 120px;
+      height: 20px;
+      overflow: hidden;
+      word-break: keep-all;
+      word-wrap: keep-all;
+      white-space: nowrap;
+      table-layout: fixed;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    .m_player_dock .music_info .music_info_main .play_date {
+      color: #595959;
+      height: 20px; }
+    .m_player_dock .music_info .music_info_main .music_op strong {
+      background: url(./images/player_bg.png) no-repeat ;
+      display: inline-block;
+      width: 16px;
+      height: 15px;
+      margin: 0 2px 0 0;
+      cursor: pointer; }
+      .m_player_dock .music_info .music_info_main .music_op strong span {
+        display: none; }
+    .m_player_dock .music_info .music_info_main .music_op .btn_like {
+      background-position: 0 -127px; }
+    .m_player_dock .music_info .music_info_main .music_op .btn_share {
+      background-position: -16px -127px; }
+
+.bar_op {
+  position: absolute;
+  left: 248px;
+  top: 43px;
+  width: 280px; }
+  .bar_op strong {
+    background: url(./images/player_bg.png) no-repeat;
+    display: block;
+    vertical-align: top;
+    width: 36px;
+    height: 28px;
+    float: left;
+    margin-top: 7px;
+    margin-left: 3px;
+    border: 0;
+    cursor: pointer; }
+    .bar_op strong span {
+      display: none; }
+  .bar_op .prev_bt {
+    background-position: -69px 0; }
+    .bar_op .prev_bt:hover{
+      background-position: -69px -32px;
+    }
+  .bar_op .play_bt {
+    width: 42px;
+    height: 42px;
+    margin-top: 0; }
+     .bar_op .play_bt:hover{
+      background-position: -105px -42px;
+     }
+  .bar_op .play_bt {
+    background-position: -105px 0; }
+  .bar_op .next_bt {
+    background-position: -147px -0; }
+      .bar_op .next_bt:hover {
+background-position: -147px -32px;
+      }
+  .bar_op .cycle_bt {
+    background-position: -219px 0; }
+    .bar_op .cycle_bt:hover{
+      background-position: -219px -32px;
+    }
+  .m_player .bar_op .pause_bt{
+    background-position: -291px -88px;
+  }
+  .volume.volume_mute:hover{
+    background-position: -189px -63px;
+  }
+    .volume .volume_mute{
+      background:url(./images/player_bg.png) no-repeat -152px -63px;
+    }
+        .volume .volume_mute{
+          vertical-align: -7px;
+          display:inline-block;
+          width:24px;
+          height:24px;
+          cursor: pointer;
+        }
+    .m_player .bar_op .pause_bt:hover{
+  background-position: -333px -88px;
+    }
+   .m_player .bar_op .pause_bt{
+    width:42px;
+    height:42px;
+    margin-top:0;
+   }
+   #spanplayer_bgbar{
+    animation:width .5s linear;
+   }
+   #spanprogress_op{
+      animation:left .5s linear;
+   }
+  .bar_op .volume {
+    display: inline-block;
+    width: 100px;
+    height: 24px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 8px; }
+    .bar_op .volume .volume_icon {
+      background: url(./images/player_bg.png) no-repeat -189px -3px;
+      vertical-align: -7px;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      cursor: pointer; }
+      .bar_op .volume .volume_icon:hover{
+        background-position:-189px -35px;
+      }
+  .bar_op .volume_regulate {
+    font-size: 0;
+    background: url(./images/player_bg.png) no-repeat -291px -11px;
+    display: inline-block;
+    width: 71px;
+    height: 11px;
+    position: relative;
+    cursor: pointer; }
+  .bar_op .volume_bar {
+    font-size: 0;
+    background: url(./images/player_bg.png) no-repeat -291px 0;
+    display: inline-block;
+    height: 11px;
+    position: absolute; }
+  .bar_op .volume_op {
+    font-size: 0;
+    width: 6px;
+    height: 11px;
+    position: absolute;
+    top: 0;
+    background: url(./images/player_bg.png) no-repeat -366px 0; }
+
+.playbar_cp_select {
+  display: none;
+  background-color: #383838;
+  width: 32px;
+  padding: 5px 0;
+  position: absolute;
+  left: 376px;
+  _left: 379px;
+  bottom: 35px;
+  _bottom: 34px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 6px RGBA(0, 0, 0, 0.42);
+  z-index: 12; }
+  .playbar_cp_select strong {
+    background: url(./images/player_bg.png) no-repeat;
+    display: block;
+    width: 32px;
+    height: 22px;
+    cursor: pointer; }
+    .playbar_cp_select strong span {
+      display: none; }
+  .playbar_cp_select .ordered_bt {
+    background-position: -408px 0; }
+  .playbar_cp_select .unordered_bt {
+    background-position: -408px -44px; }
+  .playbar_cp_select .cycle_single_bt {
+    background-position: -376px 0; }
+  .playbar_cp_select .cycle_bt {
+    background-position: -376px -44px; }
+
+.player_bar {
+  font-size: 0;
+  width: 541px;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+  .player_bar .player_bg_bar {
+    width: 100%;
+    background: #323232;
+    font-size: 0;
+    height: 4px;
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+  .player_bar .download_bar {
+    background: #2c4838;
+    font-size: 0;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer; }
+  .player_bar .play_current_bar {
+    position: absolute;
+    background: #0cc65b;
+    font-size: 0;
+    display: block;
+    height: 4px;
+    z-index: 3;
+    cursor: pointer; }
+  .player_bar .progress_op {
+    display: block;
+    width: 7px;
+    height: 6px;
+    background: url(./images/progress_op.png) no-repeat;
+    position: absolute;
+    z-index: 3;
+    top: -1px;
+    cursor: pointer;
+    _background: none;
+    cursor: pointer; }
+
+.time_show {
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  z-index: 3; }
+  .time_show p {
+    height: 17px;
+    line-height: 17px;
+    color: #fff;
+    border: solid 1px #666;
+    background: #2f2f2f;
+    -webkit-text-size-adjust: none;
+    font-size: 10px;
+    text-align: center;
+    font-family: Arial,Helvetica; }
+  .time_show .icon_arrow_foot {
+    display: block;
+    width: 13px;
+    height: 7px;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+    left: 17px; }
+  .time_show .foot_border {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    display: inline-block;
+    border-width: 7px;
+    border-color: #666 transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    position: absolute;
+    top: -1px; }
+  .time_show .foot_arrow {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    display: inline-block;
+    border-width: 5px;
+    border-color: #2f2f2f transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    position: absolute;
+    top: -1px;
+    left: 2px; }
+
+.y_player_lyrics {
+  width: 249px;
+  height: 94px;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: -250px; }
+  .y_player_lyrics .y_player_text {
+    height: 93px;
+    overflow: hidden;
+    margin: 10px 10px 0;
+    text-align: center;
+    color: #f5f5f5;
+    line-height: 24px;
+    font-family: "Microsoft YaHei"; }
+    .y_player_lyrics .y_player_text .current {
+      color: #0cc65b; }
+  .y_player_lyrics .lyrics_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 249px;
+    height: 115px;
+    background: #000;
+    border-radius: 0 5px 5px 0;
+    opacity: .8;
+    box-shadow: 3px 3px 6px RGBA(0, 0, 0, 0.42); }
+  .y_player_lyrics .close_lyrics {
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    background: url(./images/player_bg.png) no-repeat -503px 0;
+    cursor: pointer; }
+
+.singer_radio_tip {
+  width: 277px;
+  height: 155px;
+  position: absolute;
+  left: 10px;
+  top: -155px;
+  /* background: url(../images/player_tip.png) no-repeat; */
+  z-index: 9999; }
+  .singer_radio_tip .close_tips {
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px; }

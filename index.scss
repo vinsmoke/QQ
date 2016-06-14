@@ -1,0 +1,590 @@
+%ac{
+  &::after{
+    content: '';
+    clear: both;
+  }
+}
+ul,li,h1,h2,h3,h4,h5,h6{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p,ul,li{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+button{
+    outline:none;
+}
+a{
+    text-decoration:none;
+}
+body{
+  color: #8B8B8B;
+  background-color: #FFF;
+  font-size: 12px;
+  line-height: 1.5em;
+  font-family: Arial,Tahoma,"hiragino sans gb",Helvetica;
+  margin: 0;
+}
+@mixin wh($w,$y,$l){
+    width: $w;
+    height: $y;
+    line-height: $l;
+};
+@mixin align($top:0,$bottom:0,$left:0,$right:0){
+    position: absolute;
+    left: $left;
+    top: $top;
+    bottom: $bottom;
+    right:$right;
+};
+
+$positions:(
+  'active_tip':0px 0px,
+  'open_list':-222px -97px,
+  'btn_lyrics_disabled':-452px 0,
+  'folded_bt':0 0,
+  'i': -504px -28px,
+  'close_list':-269px -97px,
+  'icon_radio':-453px -55px,
+  'strong':null null,
+  'volume_icon':-189px -3px,
+  'volume_regulate':-291px -11px,
+  'volume_bar':-291px 0,
+  'volume_op':-366px 0,
+);
+@mixin bj($xy){
+      $xyy:map-get($positions,$xy);
+      background: url(./images/player_bg.png) no-repeat $xyy;
+};
+@mixin gg{
+  overflow: hidden;
+   word-break: keep-all;
+   word-wrap: keep-all;
+  white-space: nowrap;
+ table-layout: fixed;
+ -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.m_player{
+   @include wh(563px,115px,null)
+   position: fixed;
+   _position: absolute;
+   bottom: 20px;
+   left: -541px;
+   box-shadow: 3px 3px 6px RGBA(0,0,0,.42);
+   border-radius: 4px;
+   z-index: 1;
+    left: 0;
+  .active_tip{
+    font-size: 0;
+    background: url(./images/player_bg.png) no-repeat;
+    display: block;
+    @include wh(17px,20px,null)
+    @include align(null,null,null,3px)
+  }
+  .open_list{
+    @include bj(open_list);
+    @include wh(47px,28px,null)
+    @include align(0,null,null,61px)
+    cursor: pointer;
+    span{
+      color: #FFF;
+    font-family: tahoma;
+    font-size: 11px;
+    display: inline-block;
+    text-align: center;
+    @include wh(24px,28px,28px)
+    margin-left: 23px;
+    }
+  }
+  .btn_lyrics_disabled{
+    display: block;
+    @include wh(14px,14px,null);
+    @include bj(btn_lyrics_disabled);
+    @include align(7px,null,null,37px);
+    text-indent: -9999px;
+    cursor:pointer;
+  }
+  .folded_bt{
+    @include bj(folded_bt);
+    display: block;
+    @include wh(22px,115px,null);
+    border: 0;
+    @include align(0,null,null,0);
+    span{
+      display: none;
+    }
+  }
+  .play_list_fram{
+    background-color: #1B1B1B;
+    @include wh(547px,507px,null);
+    @include align(-507px,null,0,null);
+    z-index: 11;
+    box-shadow: 3px 3px 6px RGBA(0,0,0,.42);
+  }
+  .play_list_title{
+     background-color: #000;
+     @include wh(null,52px,null);
+     position: relative;
+     z-index: 2;
+     ul{
+       li{
+         float: left;
+          position: relative;
+          a{
+       float: left;
+       color: #FFF;
+       font-size: 18px;
+       font-family: Microsoft Yahei;
+      @include wh(null,52px,52px)
+       padding: 0 20px;
+          }
+          i{
+      display: block;
+      @include wh(15px,8px,null)
+      @include bj(i);
+      margin: 0 0 0 -7px;
+      @include align(52px,null,50%,null)
+          }
+       }
+       .current{
+         a{
+              background: #262626;
+         }
+       }
+     }
+     .clear_list{
+       color: #999;
+    @include align(18px,null,null,31px)
+    cursor: pointer;
+     }
+     .close_list{
+    @include bj(close_list);
+    display: inline-block;
+    @include wh(20px,20px,null)
+    @include align(3px,null,null,7px);
+    cursor: pointer;
+     }
+     }
+     .play_list{
+      @include wh(null,455px,null)
+      /* overflow: hidden; */
+     overflow: scroll;
+     position: relative;
+     border-top: solid 1px #262626;
+     z-index: 1;
+     .play_list_main{
+       width: 529px;
+       height: 800px;
+       position: absolute;
+       left: 0;
+       z-index: 100;
+       .single_list li{
+         height: 23px;
+         margin: 2px 0 3px;
+         padding-left: 20px;
+         position: relative;
+         border-top: solid 1px #1B1B1B;
+         strong{
+           color: #595959;
+           font-weight: normal;
+         }
+         .music_name{
+           color: #999;
+           line-height: 24px;
+           display: inline-block;
+           vertical-align: top;
+           width: 254px;
+           cursor: pointer;
+           @include gg;
+         }
+         .singer_name{
+           line-height: 24px;
+           display: block;
+          width: 180px;
+           cursor: pointer;
+           @include align(0,null,290px,null)
+          @include gg;
+         }
+         .play_time{
+           line-height: 24px;
+           display: block;
+           width: 34px;
+            @include align(0,null,null,17px);
+         }
+         .list_cp{
+           display: none;
+           strong{
+             background-image: url(./images/player_bg.png);
+             background-repeat: no-repeat;
+            display: inline-block;
+            width: 16px;
+            height: 15px;
+            margin-right: 5px;
+            cursor: pointer;
+            span{
+              display: none;
+            }
+           }
+           .btn_like{
+              background-position: 0 -127px;
+           }
+           .btn_share{
+             background-position: -16px -127px;
+           }
+           .btn_fav{
+              background-position: -64px -127px;
+           }
+           .btn_del{
+             background-position: -48px -127px;
+             margin-right: 0!important;
+           }
+         }
+       }
+     }
+     .play_list_scroll{
+     @include wh(15px,455px,null);
+     @include align(53px,null,null,0);
+     cursor: pointer;
+     .play_list_scrolling{
+       background-color: #3B3B3B;
+       width: 9px;
+      position: absolute;
+      left: 3px;
+     }
+     }
+     }
+  }
+.m_player_dock{
+  background-color: #000;
+    @include wh(541px,115px,null)
+    .music_info{
+      .album_pic{
+        display: block;
+        @include wh(90px,90px,null)
+        margin: 10px;
+        float: left;
+        overflow: hidden;
+      }
+      .music_info_main{
+        font-family: tahoma;
+        float: left;
+        p{
+          margin: 5px 0;
+        }
+        .music_name{
+              color: #FFF;
+              @include wh(300px,20px,null);
+              @include gg;
+              span{
+                float: left;
+            max-width: 210px;
+             @include gg;
+            _float: none;
+              }
+              .icon_radio{
+                float: left;
+                @include wh(75px,20px,null);
+                margin: 0 0 0 10px;
+                @include bj(icon_radio);
+                text-indent: -9999em;
+                overflow:hidden;
+                vertical-align:middle;
+              }
+        }
+        .singer_name{
+          color:#828282;
+          display: block;
+          @include wh(120px,20px,null);
+          @include gg;
+        }
+        .play_date{
+          color: #595959;
+          height: 20px;
+        }
+        .music_op{
+          strong{
+            @include bj(strong);
+            display: inline-block;
+            @include wh(16px,15px,null);
+            margin: 0 2px 0 0;
+            cursor: pointer;
+            span{
+              display: none;
+            }
+          }
+          .btn_like{
+            background-position: 0 -127px;
+          }
+          .btn_share{
+            background-position: -16px -127px;
+          }
+        }
+      }
+    }
+}
+.bar_op{
+  @include align(43px,null,248px,null);
+  width: 280px;
+  strong{
+    background: url(./images/player_bg.png) no-repeat;
+   display: block;
+   vertical-align: top;
+   width: 36px;
+   height: 28px;
+   float: left;
+   margin-top: 7px;
+   margin-left: 3px;
+   border: 0;
+   cursor: pointer;
+   span{
+     display: none;
+   }
+  }
+  .prev_bt{
+    background-position: -69px 0;
+  }
+  .play_bt{
+    width: 42px;
+    height: 42px;
+    margin-top: 0;
+  }
+  .play_bt{
+    background-position: -105px 0;
+  }
+  .next_bt{
+    background-position: -147px -0;
+  }
+  .cycle_bt{
+    background-position: -219px 0;
+  }
+  .volume{
+    display: inline-block;
+    width: 100px;
+    height: 24px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 8px;
+    .volume_icon{
+      @include bj(volume_icon);
+      vertical-align: -7px;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+  .volume_regulate{
+    font-size: 0;
+    @include bj(volume_regulate);
+    display: inline-block;
+    width: 71px;
+    height: 11px;
+    position: relative;
+    cursor: pointer;
+  }
+  .volume_bar{
+    font-size: 0;
+    @include bj(volume_bar);
+   display: inline-block;
+   height: 11px;
+   position: absolute;
+  }
+  .volume_op{
+    font-size: 0;
+    width: 6px;
+    height: 11px;
+    position: absolute;
+    top: 0;
+    @include bj(volume_op);
+  }
+}
+.playbar_cp_select{
+  display: none;
+  background-color: #383838;
+  width: 32px;
+  padding: 5px 0;
+  position: absolute;
+  left: 376px;
+  _left: 379px;
+  bottom: 35px;
+  _bottom: 34px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 6px RGBA(0,0,0,.42);
+  z-index: 12;
+  strong{
+    background: url(./images/player_bg.png) no-repeat;
+    display: block;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    span{
+      display: none;
+    }
+  }
+  .ordered_bt{
+     background-position: -408px 0;
+  }
+  .unordered_bt{
+     background-position: -408px -44px;
+  }
+  .cycle_single_bt{
+     background-position: -376px 0;
+  }
+  .cycle_bt{
+    background-position: -376px -44px;
+  }
+}
+.player_bar{
+  font-size: 0;
+   width: 541px;
+   height: 4px;
+   @include align(null,0,0,null);
+   .player_bg_bar{
+     width: 100%;
+    background: #323232;
+    font-size: 0;
+    height: 4px;
+    z-index: 1;
+    cursor: pointer;
+    @include align(null,0,0,null);
+   }
+   .download_bar{
+     background: #2c4838;
+    font-size: 0;
+    height: 4px;
+    @include align(null,0,0,null);
+    z-index: 2;
+    cursor: pointer;
+   }
+   .play_current_bar{
+     position: absolute;
+    background: #0cc65b;
+    font-size: 0;
+    display: block;
+    height: 4px;
+    z-index: 3;
+    cursor: pointer;
+   }
+   .progress_op{
+     display: block;
+    width: 7px;
+    height: 6px;
+    background: url(./images/progress_op.png) no-repeat;
+    position: absolute;
+    z-index: 3;
+    top: -1px;
+    cursor: pointer;
+    _background: none;
+    cursor: pointer;
+   }
+}
+.time_show{
+  width: 50px;
+   height: 24px;
+  position: absolute;
+  z-index: 3;
+  p{
+    height: 17px;
+   line-height: 17px;
+   color: #fff;
+   border: solid 1px #666;
+   background: #2f2f2f;
+   -webkit-text-size-adjust: none;
+   font-size: 10px;
+   text-align: center;
+   font-family: Arial,Helvetica;
+  }
+  .icon_arrow_foot{
+    display: block;
+    width: 13px;
+    height: 7px;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+    left: 17px;
+  }
+  .foot_border{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    display: inline-block;
+    border-width: 7px;
+    border-color: #666 transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    position: absolute;
+    top: -1px;
+  }
+  .foot_arrow{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    display: inline-block;
+    border-width: 5px;
+    border-color: #2f2f2f transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    position: absolute;
+    top: -1px;
+    left: 2px;
+  }
+}
+.y_player_lyrics{
+   width: 249px;
+   height: 94px;
+   z-index: 2;
+   @include align(0,null,null,-250px);
+   .y_player_text{
+     height: 93px;
+     overflow: hidden;
+      margin: 10px 10px 0;
+     text-align: center;
+     color: #f5f5f5;
+     line-height: 24px;
+      font-family: "Microsoft YaHei";
+      .current{
+            color: #0cc65b;
+      }
+   }
+   .lyrics_bg{
+     position: absolute;
+left: 0;
+top: 0;
+z-index: -1;
+width: 249px;
+height: 115px;
+background: #000;
+border-radius: 0 5px 5px 0;
+opacity: .8;
+box-shadow: 3px 3px 6px RGBA(0,0,0,.42);
+   }
+   .close_lyrics{
+     display: block;
+ width: 8px;
+ height: 8px;
+ position: absolute;
+ right: 8px;
+ top: 9px;
+ background: url(./images/player_bg.png) no-repeat -503px 0;
+ cursor: pointer;
+   }
+}
+.singer_radio_tip{
+   width: 277px;
+    height: 155px;
+    @include align(-155px,null,10px,null);
+    /* background: url(../images/player_tip.png) no-repeat; */
+    z-index: 9999;
+    .close_tips{
+      display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    }
+}
